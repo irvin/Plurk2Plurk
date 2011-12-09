@@ -7,16 +7,52 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-console.log("PlurkToPlurk: Active!");
+console.log("Plurk2Plurk: Script Active");
 
-var fbDetective = $('html#facebook');
+var fbDetective = $('iframe');
+fbDetective.css('border','2px solid yellow');
+
+var fbUrl = fbDetective.prop('src');
+if (fbUrl){
+    var fbUrl = decodeURIComponent(fbUrl);
+    console.log(fbUrl);
+        
+    var urltest = /^https?:\/\/www\.facebook\.com\/plugins\/like\.php\?.*$/;
+    if (urltest.test(fbUrl)){
+        console.log('Found FB iframe!');
+        fbDetective.css('background-color','red');
+        
+        urltest = /href=([^&]*)(\\s|&|$)/;
+        fbUrl = urltest.exec(fbUrl);
+        console.log(fbUrl);
+    }
+}
+
+
+//http://www.facebook.com/plugins/like.php
+
+//var fbDetective = if.contents().find('html#facebook');
+//if (fbDetective.text('background-color','red')) {
+//    fbDetective.css();
+//}
+
+//$("#mainiframe").contents().find("someID").html()
+
+
+//fbDetective.css('background-color','red').parent().css('background-color','green');
+
+//var fbDetective = $('html#facebook').parentsUntil('iframe');
+//if (fbDetective.text()) {
+//    console.log(fbDetective.html());
+//    fbDetective.css('background-color','red');
+//};
+/*
 if ( fbDetective.text() && !fbDetective.hasClass('P2PlurkInjected') ) {
-    console.log('Find!');
-    fbDetective.addClass('P2PlurkInjected');
-    fbDetective = fbDetective.parentsUntil('iframe');
-    fbDetective.css('background-color','red');
-    
+    fbDetective.addClass('P2PlurkInjected').css('background-color','red');
+    var fbUri = decodeURI(fbDetective.attr('src'));
+    console.log(fbUri);   
 };
+*/
 
 //var strTitle = $('h1').text();
 //var btnViewInItunes = $("div#left-stack a.view-in-itunes:first, div#left-stack a.view-in-appstore:first");
@@ -30,8 +66,8 @@ if ( fbDetective.text() && !fbDetective.hasClass('P2PlurkInjected') ) {
 //        'margin': '-5px 0 10px',
 //        'padding': '1px 10px',
 //        'background': '-moz-linear-gradient( top, #57B8EE 0%, #2681C8)',
-//	    'border-radius': '20px',
-//    	'text-shadow': '0px -1px 1px rgba(0, 0, 0, 0.25)',
+//        'border-radius': '20px',
+//        'text-shadow': '0px -1px 1px rgba(0, 0, 0, 0.25)',
 //        'cursor': 'pointer',
 //        'box-shadow': '0 1px 1px rgba(0, 0, 0, 0.5)',
 //        'width': '-moz-fit-content'
