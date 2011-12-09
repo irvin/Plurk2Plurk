@@ -7,27 +7,43 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+console.log(" ");
 console.log("Plurk2Plurk: Script Active");
+
 
 var fbDetective = $('iframe');
 fbDetective.css('border','2px solid yellow');
 
-var fbUrl = fbDetective.prop('src');
-if (fbUrl){
-    var fbUrl = decodeURIComponent(fbUrl);
-    console.log(fbUrl);
+fbDetective.each(function(i){
+
+    var fbiframe = $(this);
+    var fbUrl = decodeURIComponent(fbiframe.prop('src'));
+    console.log('iframe [' + i + '] url: ' + fbUrl);
         
     var urltest = /^https?:\/\/www\.facebook\.com\/plugins\/like\.php\?.*$/;
     if (urltest.test(fbUrl)){
-        console.log('Found FB iframe!');
-        fbDetective.css('background-color','red');
+        fbiframe.css('background-color','red');        
+        fbUrl = getUrlPara(fbUrl, 'href');
         
-        urltest = /href=([^&]*)(\\s|&|$)/;
-        fbUrl = urltest.exec(fbUrl);
-        console.log(fbUrl);
-    }
-}
+        var urlTitle = fbiframe.contents().find('.connect_widget_text').find('b').text();
+        console.log('Found fb iframe, target Url: ' + fbUrl + ' Title: ' + urlTitle);
+    };
 
+});
+
+
+
+function getUrlPara(str, name)
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( str );
+  if( results == null )
+    return "";
+  else
+    return results[1];
+}
 
 //http://www.facebook.com/plugins/like.php
 
