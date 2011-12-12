@@ -1,9 +1,9 @@
 {
-    "name": "p2plurk",
-    "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
-    "author": "",
-    "version": "0.1",
+    "name": "Plurk2Plurk",
+    "license": "MPL 1.1",
+    "author": "irvinfly@gmail.com",
+    "version": "0.5",
     "fullName": "P2Plurk",
     "id": "jid1-YODpfWhQx1wwrQ",
-    "description": "a basic add-on"
+    "description": "This Add-on will adding 'Share to Plurk' button after every fb Like buttons."
 }
