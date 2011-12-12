@@ -1,6 +1,6 @@
 /* ***** BEGIN LICENSE BLOCK *****
  *
- * Firefox Plurk2Plurk extension v0.5
+ * Firefox Plurk2Plurk extension v0.6
  * irvinfly@gmail.com
  *
  * This add-on is licensed under Mozilla Public License Version 1.1
@@ -8,7 +8,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-console.log('p2plurk activate!');
+//console.log('p2plurk activate!');
 
 var fbXxxxl = $('fb\\:like');
 var fbTitle = $(document).attr('title');
@@ -16,7 +16,9 @@ var fbTitle = $(document).attr('title');
 if (fbXxxxl.length) {    //Find FBXML    
     fbXxxxl.each(function(i){
         var fbEyeFrame = $(this);
-        var fbUrl = fbEyeFrame.attr('href') || window.location;
+        var fbUrl = fbEyeFrame.attr('href') || window.location;        
+        if (fbUrl.substr(fbUrl.length - 11, 11) == "?xid=fblike") 
+            fbUrl = fbUrl.replace("?xid=fblike", "");
         addBtn(fbUrl, fbTitle, fbEyeFrame);
     });
 } 
@@ -37,7 +39,7 @@ else {    //Check fb iframe
 
 function addBtn(fbUrl, title, target) {
     var shareContent = fbUrl + " (" + title + ")";
-    var plurkBtn = $("<div style='display: none; position: absolute; top: 0px; left: 0px;' class='p2plurk_div'><a title='Share to Plurk' href='http://www.plurk.com/?qualifier=shares&status=" + encodeURIComponent(shareContent) + "' class='p2plurk' target='_blank'><img alt='' src='http://statics.plurk.com/23d30a60b81915a637d1c3d2cd966a59.png ' width='65' height='20' border='0' /></a></div>")
+    var plurkBtn = $("<div style='display: none; position: absolute; z-index: 999;' class='p2plurk_div'><a title='Share to Plurk' href='http://www.plurk.com/?qualifier=shares&status=" + encodeURIComponent(shareContent) + "' class='p2plurk' target='_blank'><img alt='' src='http://statics.plurk.com/23d30a60b81915a637d1c3d2cd966a59.png ' width='65' height='20' border='0' /></a></div>")
         .css('left', target.offset().left).css('top', target.offset().top + 22)
         .hover(
             function(){ $('body').data('pHoverStat', true); },

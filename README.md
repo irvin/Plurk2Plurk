@@ -1,4 +1,4 @@
-Firefox Plurk2Plurk extension  v0.5
+Firefox Plurk2Plurk extension  v0.6
 ===================================
 Dec. 2011  
 Irvin  <irvinfly@gmail.com>
