@@ -1,6 +1,7 @@
 /* ***** BEGIN LICENSE BLOCK *****
  *
  * Firefox Plurk2Plurk extension v0.5
+ * irvinfly@gmail.com
  *
  * This add-on is licensed under Mozilla Public License Version 1.1
  * You may obtain a copy of the License at http://www.mozilla.org/MPL/
@@ -45,6 +46,7 @@ $('iframe').each(function(i){
     };
 });
 
+
 // Hide Plurk button on timeout after Timeout
 function hideBtn() {
     if ($('body').data('pHoverStat') == false){
@@ -52,7 +54,9 @@ function hideBtn() {
     };
 };
 
-// Get Url parameter
+
+// Get Url Parameter
+// modify from http://www.netlobo.com/url_query_string_javascript.html
 function getUrlPara(str, name){
   name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
   var regexS = "[\\?&]"+name+"=([^&#]*)";
