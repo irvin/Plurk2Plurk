@@ -4,7 +4,7 @@ Dec. 2011
 Irvin  <irvinfly@gmail.com>
 ___
 
-This Add-on will adding 'Share to Plurk' button after every fb Like buttons.  
+This Add-on will adding 'Share 2 Plurk' button below every fb Like buttons.  
 Plurk is another SNS featuring the 'river style' timeline.
 
 This add-on is licensed under _Mozilla Public License Version 1.1_  
