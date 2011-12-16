@@ -1,0 +1,14 @@
+{
+    "name": "Plurk2Plurk-evil",
+    "version": "0.6",
+    "description": "This Add-on will adding 'Share 2 Plurk' button below every fb Like buttons.",
+    "icons": {
+        "16": "data/plurk_16.png",
+        "48": "data/plurk_48.png",
+        "128": "data/plurk_128.png" 
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["data/jquery-1.7.1.min.js", "data/script.js"]
+    }]
+}
