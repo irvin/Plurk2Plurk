@@ -1,5 +1,5 @@
-Firefox Plurk2Plurk extension  v0.6
-===================================
+Plurk2Plurk extension  v0.65
+====================================
 Dec. 2011  
 Irvin  <irvinfly@gmail.com>
 ___
@@ -12,3 +12,10 @@ You may obtain a copy of the License at <http://www.mozilla.org/MPL/>
 
 The extension icon is designed by Kuswanto, zuesbox studio, from  
 <http://www.zeusboxstudio.com/blog/plurk-icon>
+
+
+Changelog
+------------------------------------
+0.5: Initial release.
+0.6: Detect XFBML fb button. 
+0.65: Make button position more accurate
