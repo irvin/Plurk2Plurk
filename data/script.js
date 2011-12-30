@@ -1,14 +1,12 @@
 /* ***** BEGIN LICENSE BLOCK *****
  *
- * Firefox Plurk2Plurk extension v0.6
+ * Firefox Plurk2Plurk extension v0.65
  * irvinfly@gmail.com
  *
  * This add-on is licensed under Mozilla Public License Version 1.1
  * You may obtain a copy of the License at http://www.mozilla.org/MPL/
  *
  * ***** END LICENSE BLOCK ***** */
-
-//console.log('p2plurk activate!');
 
 var fbXxxxl = $('fb\\:like');
 var fbTitle = $(document).attr('title');
@@ -38,9 +36,9 @@ else {    //Check fb iframe
 
 
 function addBtn(fbUrl, title, target) {
+    $('body').css('position', 'relative');
     var shareContent = fbUrl + " (" + title + ")";
-    var plurkBtn = $("<div style='display: none; position: absolute; z-index: 999;' class='p2plurk_div'><a title='Share to Plurk' href='http://www.plurk.com/?qualifier=shares&status=" + encodeURIComponent(shareContent) + "' class='p2plurk' target='_blank'><img alt='' src='http://statics.plurk.com/23d30a60b81915a637d1c3d2cd966a59.png ' width='65' height='20' border='0' /></a></div>")
-        .css('left', target.offset().left).css('top', target.offset().top + 22)
+    var plurkBtn = $("<div style='display: none; position: absolute; z-index: 999; width: 65px; height: 20px;' class='p2plurk_div'><a title='Share to Plurk' href='http://www.plurk.com/?qualifier=shares&status=" + encodeURIComponent(shareContent) + "' class='p2plurk' target='_blank'><img alt='' src='http://statics.plurk.com/23d30a60b81915a637d1c3d2cd966a59.png ' width='65' height='20' border='0' /></a></div>")
         .hover(
             function(){ $('body').data('pHoverStat', true); },
             function(){
@@ -48,8 +46,9 @@ function addBtn(fbUrl, title, target) {
                 setTimeout(hideBtn, 500);
             }
         )
-        .appendTo('body');        // Append Plurk button to body
-        
+        .appendTo('body')
+        .offset({ top: target.offset().top + 25, left: target.offset().left });
+                
     target.hover(
         function() {
             $('body').data('pHoverStat', true);
